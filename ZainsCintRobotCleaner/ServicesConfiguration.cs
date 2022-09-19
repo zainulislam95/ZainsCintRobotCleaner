@@ -8,10 +8,10 @@ namespace ZainsCintRobotCleaner
     {
         public static ServiceProvider BuildServiceProvider()
         { 
-            var serviceProvider = new ServiceCollection()
+            var serviceProvider = new ServiceCollection() 
+                .AddScoped<IRobotCleanerService, RobotCleanerService>()
                 .AddScoped<IRobotInputService, RobotInputService>()
                 .AddScoped<IRobotOutputService, RobotOutputService>()
-                .AddScoped<IRobotCleanerService, RobotCleanerService>()
                 .BuildServiceProvider();
 
             return serviceProvider;

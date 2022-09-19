@@ -27,9 +27,9 @@ namespace Cleaner.Domain.Models
 
         #region Constructor
 
-        public Robot(int x, int y)
+        public Robot(int xPos, int yPos)
         {
-            currentLocation = new Position(x, y);
+            currentLocation = new Position(xPos, yPos);
         }
 
         #endregion

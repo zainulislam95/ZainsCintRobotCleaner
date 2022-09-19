@@ -1,4 +1,4 @@
-# ZainsCintRobotCleaner
+# Zains Cint Robot Cleaner Task
 
 ## Rules Followed
 * All Models and funtions are following SOLID principles and Unit Tests are properly implemented. 

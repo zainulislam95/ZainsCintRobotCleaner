@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "OhhuxYz9CEw2BOrYffxdcBNgNCJDWnXGnEKka7kTUK4DlDNCNDpL5R+hbcn/AxTk0XozZWijU4Efd39gH+mGxw==",
+  "success": true,
+  "projectFilePath": "D:\\PROJECTS\\Task\\ZainsCintRobotCleaner\\ZainsCintRobotCleaner\\ZainsCintRobotCleaner.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zain.islam\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
+    "C:\\Users\\zain.islam\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\zain.islam\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

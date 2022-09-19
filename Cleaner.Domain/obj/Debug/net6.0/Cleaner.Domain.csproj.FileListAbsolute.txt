@@ -1,0 +1,12 @@
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\bin\Debug\net6.0\Cleaner.Domain.deps.json
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\bin\Debug\net6.0\Cleaner.Domain.dll
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\bin\Debug\net6.0\Cleaner.Domain.pdb
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.csproj.AssemblyReference.cache
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.AssemblyInfoInputs.cache
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.AssemblyInfo.cs
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.csproj.CoreCompileInputs.cache
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.dll
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\refint\Cleaner.Domain.dll
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\Cleaner.Domain.pdb
+D:\PROJECTS\Task\ZainsCintRobotCleaner\Cleaner.Domain\obj\Debug\net6.0\ref\Cleaner.Domain.dll

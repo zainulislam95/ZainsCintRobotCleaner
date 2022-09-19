@@ -9,228 +9,250 @@ namespace ZainsCintRobotCleaner.Test
 {
     public class RobotInputServiceTests
     {
+        #region Commands
+
         [Test]
-        public void WhenReadInputNumberOfCommandsAreTwoThenInputsAreComplete()
+        public void WhenRobotInputNumberOfCommandsAreTwoThenInputsAreComplete()
         {
             //arrange
-            var readInputService = new Mock<IRobotInputService>();
+            var robotInputService = new Mock<IRobotInputService>();
 
             //act
-            readInputService.Setup(r => r.ParseInput("2"));
-            readInputService.Setup(r => r.ParseInput("10 22"));
-            readInputService.Setup(r => r.ParseInput("E 2"));
-            readInputService.Setup(r => r.ParseInput("N 1"));
-            readInputService.SetupGet(r => r.isInputComplete).Returns(true);
+            robotInputService.Setup(r => r.ParseInput("2"));
+            robotInputService.Setup(r => r.ParseInput("10 22"));
+            robotInputService.Setup(r => r.ParseInput("E 2"));
+            robotInputService.Setup(r => r.ParseInput("N 1"));
+            robotInputService.SetupGet(r => r.isInputComplete).Returns(true);
 
             //assert
-            Assert.IsTrue(readInputService.Object.isInputComplete);
+            Assert.IsTrue(robotInputService.Object.isInputComplete);
+        }
+
+        [Test]
+        public void WhenRobotInputNumberOfCommandsAreFiveAndActualCommandsAreTwoThenInputsAreNotComplete()
+        {
+            //arrange
+            var robotInputService = new Mock<IRobotInputService>();
+
+            //act
+            robotInputService.Setup(r => r.ParseInput("5"));
+            robotInputService.Setup(r => r.ParseInput("10 10"));
+            robotInputService.Setup(r => r.ParseInput("E 2"));
+            robotInputService.Setup(r => r.ParseInput("N 1"));
+            robotInputService.SetupGet(r => r.isInputComplete).Returns(false);
+
+            //assert
+            Assert.IsFalse(robotInputService.Object.isInputComplete);
         }
 
         //Test without Mock just to show possibilties
         [Test]
-        public void WhenReadInputNumberOfCommandsAreThreeAndCommandsAreTwoThenInputsAreNotComplete()
+        public void WhenRobotInputNumberOfCommandsAreThreeAndActualCommandsAreTwoThenInputsAreNotComplete()
         {
             //arrange
-            var r = new RobotInputService();
+            var robotInputService = new RobotInputService();
 
             //act
-            r.ParseInput("3");
-            r.ParseInput("10 22");
-            r.ParseInput("E 2");
-            r.ParseInput("N 1");
+            robotInputService.ParseInput("3");
+            robotInputService.ParseInput("10 22");
+            robotInputService.ParseInput("E 2");
+            robotInputService.ParseInput("N 1");
 
             //assert
-            Assert.IsFalse(r.isInputComplete);
+            Assert.IsFalse(robotInputService.isInputComplete);
         }
 
         [Test]
-        public void WhenReadInputNumberOfCommandsAreMoreThanTwoThenInputsAreComplete()
+        public void WhenRobotInputNumberOfCommandsAreMoreThanTwoAndActualCommandsAreMoreThanTwoThenInputsAreComplete()
         {
             //arrange
             var expectedResult = true;
-            var readInputService = new Mock<IRobotInputService>();
+            var robotInputService = new Mock<IRobotInputService>();
 
             //act
-            readInputService.Setup(r => r.ParseInput("4"));
-            readInputService.Setup(r => r.ParseInput("10 22"));
-            readInputService.Setup(r => r.ParseInput("E 2"));
-            readInputService.Setup(r => r.ParseInput("N 1"));
-            readInputService.Setup(r => r.ParseInput("W 3"));
-            readInputService.Setup(r => r.ParseInput("S 3"));
-            readInputService.SetupGet(r => r.isInputComplete).Returns(true);
+            robotInputService.Setup(r => r.ParseInput("4"));
+            robotInputService.Setup(r => r.ParseInput("10 22"));
+            robotInputService.Setup(r => r.ParseInput("E 2"));
+            robotInputService.Setup(r => r.ParseInput("N 1"));
+            robotInputService.Setup(r => r.ParseInput("W 3"));
+            robotInputService.Setup(r => r.ParseInput("S 3"));
+            robotInputService.SetupGet(r => r.isInputComplete).Returns(true);
 
             //assert
-            Assert.That(expectedResult, Is.EqualTo(readInputService.Object.isInputComplete));
+            Assert.That(expectedResult, Is.EqualTo(robotInputService.Object.isInputComplete));
         }
 
         [Test]
-        public void WhenReadInputNumberOfCommandsAreZeroThenInputsAreComplete()
+        public void WhenRobotInputNumberOfCommandsAreZeroThenInputsAreComplete()
         {
             //arrange
             var expectedResult = true;
-            var readInputService = new Mock<IRobotInputService>();
+            var robotInputService = new Mock<IRobotInputService>();
 
             //act
-            readInputService.Setup(r => r.ParseInput("0"));
-            readInputService.Setup(r => r.ParseInput("10 22"));
-            readInputService.SetupGet(r => r.isInputComplete).Returns(true);
+            robotInputService.Setup(r => r.ParseInput("0"));
+            robotInputService.Setup(r => r.ParseInput("10 22"));
+            robotInputService.SetupGet(r => r.isInputComplete).Returns(true);
 
             //assert
-            Assert.That(expectedResult, Is.EqualTo(readInputService.Object.isInputComplete));
+            Assert.That(expectedResult, Is.EqualTo(robotInputService.Object.isInputComplete));
         }
 
         [Test]
-        public void WhenReadInputNumberOfCommandsAreLessThanZeroThenInputsAreComplete()
+        public void WhenRobotInputNumberOfCommandsAreLessThanZeroThenInputsAreComplete()
         {
             //arrange
             var expectedResult = true;
-            var readInputService = new Mock<IRobotInputService>();
+            var RobotInputService = new Mock<IRobotInputService>();
 
             //act
-            readInputService.Setup(r => r.ParseInput("-3"));
-            readInputService.Setup(r => r.ParseInput("10 22"));
+            RobotInputService.Setup(r => r.ParseInput("-3"));
+            RobotInputService.Setup(r => r.ParseInput("10 22"));
             for (int i = 0; i < 10000; i++)
             {
-                readInputService.Setup(r => r.ParseInput("W 2"));
+                RobotInputService.Setup(r => r.ParseInput("W 2"));
             }
-            readInputService.SetupGet(r => r.isInputComplete).Returns(true);
+            RobotInputService.SetupGet(r => r.isInputComplete).Returns(true);
 
             //assert
-            Assert.That(expectedResult, Is.EqualTo(readInputService.Object.isInputComplete));
+            Assert.That(expectedResult, Is.EqualTo(RobotInputService.Object.isInputComplete));
         }
 
         [Test]
-        public void WhenReadInputNumberOfCommandsAreTenThousandThenInputsAreComplete()
+        public void WhenRobotInputNumberOfCommandsAreTenThousandThenInputsAreComplete()
         {
             //arrange
             var expectedResult = true;
-            var readInputService = new Mock<IRobotInputService>();
+            var RobotInputService = new Mock<IRobotInputService>();
 
             //act
-            readInputService.Setup(r => r.ParseInput("10000"));
-            readInputService.Setup(r => r.ParseInput("10 22"));
+            RobotInputService.Setup(r => r.ParseInput("10000"));
+            RobotInputService.Setup(r => r.ParseInput("10 22"));
             for (int i = 0; i < 10000; i++)
             {
-                readInputService.Setup(r => r.ParseInput("W 2"));
+                RobotInputService.Setup(r => r.ParseInput("W 2"));
             }
-            readInputService.SetupGet(r => r.isInputComplete).Returns(true);
+            RobotInputService.SetupGet(r => r.isInputComplete).Returns(true);
 
             //assert
-            Assert.That(expectedResult, Is.EqualTo(readInputService.Object.isInputComplete));
+            Assert.That(expectedResult, Is.EqualTo(RobotInputService.Object.isInputComplete));
         }
 
         [Test]
-        public void WhenReadInputNumberOfCommandsAreMoreThanTenThousandThenInputsAreComplete()
+        public void WhenRobotInputNumberOfCommandsAreMoreThanTenThousandThenInputsAreComplete()
         {
             //arrange
             var expectedResult = true;
-            var readInputService = new Mock<IRobotInputService>();
+            var RobotInputService = new Mock<IRobotInputService>();
 
             //act
-            readInputService.Setup(r => r.ParseInput("10500"));
-            readInputService.Setup(r => r.ParseInput("10 22"));
+            RobotInputService.Setup(r => r.ParseInput("10500"));
+            RobotInputService.Setup(r => r.ParseInput("10 22"));
             for (int i = 0; i < 10000; i++)
             {
-                readInputService.Setup(r => r.ParseInput("W 2"));
+                RobotInputService.Setup(r => r.ParseInput("W 2"));
             }
-            readInputService.SetupGet(r => r.isInputComplete).Returns(true);
+            RobotInputService.SetupGet(r => r.isInputComplete).Returns(true);
 
             //assert
-            Assert.That(expectedResult, Is.EqualTo(readInputService.Object.isInputComplete));
+            Assert.That(expectedResult, Is.EqualTo(RobotInputService.Object.isInputComplete));
         }
 
         [Test]
-        public void WhenReadInputNumberOfCommandsThenSetNumberOfCommandsInInstructions()
+        public void WhenRobotInputNumberOfCommandsThenSetNumberOfCommandsInInstructions()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var RobotInputService = new RobotInputService();
 
             //act
-            readInputService.ParseInput("1");
-            readInputService.ParseInput("10 22");
-            readInputService.ParseInput("E 2");
+            RobotInputService.ParseInput("1");
+            RobotInputService.ParseInput("10 22");
+            RobotInputService.ParseInput("E 2");
 
             //assert
-            Assert.That(readInputService.instruction.numberOfCommands, Is.EqualTo(1));
+            Assert.That(RobotInputService.instruction.numberOfCommands, Is.EqualTo(1));
         }
 
+        #endregion
+
+        #region Positions
+
         [Test]
-        public void WhenReadInputPositionWithInRangeThenSetStartPositionInInstructions()
+        public void WhenRobotInputPositionWithInRangeThenSetStartPositionInInstructions()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var robotInputService = new RobotInputService();
 
             //act
-            readInputService.ParseInput("0");
-            readInputService.ParseInput("10 22");
+            robotInputService.ParseInput("0");
+            robotInputService.ParseInput("10 22");
 
             //assert
-            Assert.That(readInputService.instruction.startPosition.x, Is.EqualTo(10));
-            Assert.That(readInputService.instruction.startPosition.y, Is.EqualTo(22));
+            Assert.That(robotInputService.instruction.startPosition.x, Is.EqualTo(10));
+            Assert.That(robotInputService.instruction.startPosition.y, Is.EqualTo(22));
         }
 
         [Test]
-        public void WhenReadInputPositionOutOfRangeThenSetStartPositionInInstructions()
+        public void WhenRobotInputPositionOutOfRangeThenSetStartPositionInInstructions()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var robotInputService = new RobotInputService();
 
             //act
-            readInputService.ParseInput("0");
-            readInputService.ParseInput("15000 -20000");
+            robotInputService.ParseInput("0");
+            robotInputService.ParseInput("15000 -20000");
 
             //assert
-            Assert.That(readInputService.instruction.startPosition.x, Is.EqualTo(Helper.maxPositionX));
-            Assert.That(readInputService.instruction.startPosition.y, Is.EqualTo(Helper.minPositionY));
+            Assert.That(robotInputService.instruction.startPosition.x, Is.EqualTo(Helper.maxPositionX));
+            Assert.That(robotInputService.instruction.startPosition.y, Is.EqualTo(Helper.minPositionY));
         }
 
         [Test]
-        public void WhenReadInputPositionWithSeperatorThenSetStartPositionInInstructions()
+        public void WhenRobotInputPositionWithSeperatorThenSetStartPositionInInstructions()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var robotInputService = new RobotInputService();
 
             //act
-            readInputService.ParseInput("0");
-            readInputService.ParseInput("1000\n2000");
+            robotInputService.ParseInput("0");
+            robotInputService.ParseInput("1000\n2000");
 
             //assert
-            Assert.That(readInputService.instruction.startPosition.x, Is.EqualTo(1000));
-            Assert.That(readInputService.instruction.startPosition.y, Is.EqualTo(2000));
+            Assert.That(robotInputService.instruction.startPosition.x, Is.EqualTo(1000));
+            Assert.That(robotInputService.instruction.startPosition.y, Is.EqualTo(2000));
         }
-
-
+         
         [Test]
-        public void WhenReadInputCleaningDirectionsThenAddCleaningDirections()
+        public void WhenRobotInputCleaningDirectionsThenAddCleaningDirections()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var robotInputService = new RobotInputService();
 
             //act
-            readInputService.ParseInput("3");
-            readInputService.ParseInput("10 22");
-            readInputService.ParseInput("E 2");
-            readInputService.ParseInput("N 1");
-            readInputService.ParseInput("W 3");
+            robotInputService.ParseInput("3");
+            robotInputService.ParseInput("12 22");
+            robotInputService.ParseInput("E 2");
+            robotInputService.ParseInput("N 1");
+            robotInputService.ParseInput("W 3");
 
             //assert
-            Assert.That(readInputService.instruction.cleaningDirections.Count, Is.EqualTo(3));
+            Assert.That(robotInputService.instruction.cleaningDirections.Count, Is.EqualTo(3));
         }
 
         [Test]
-        public void WhenReadInputCleaningDirectionsStepsMoreThan100000ThenSetStepsTo99999()
+        public void WhenRobotInputCleaningDirectionsStepsMoreThan100000ThenSetStepsTo99999()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var robotInputService = new RobotInputService();
             int actualValue = 0;
             int expectedValue = Helper.maxSteps - 1;
 
             //act
-            readInputService.ParseInput("1");
-            readInputService.ParseInput("10 22");
-            readInputService.ParseInput("E 100000");
+            robotInputService.ParseInput("1");
+            robotInputService.ParseInput("10 10");
+            robotInputService.ParseInput("E 100000");
 
-            var value = readInputService.instruction.cleaningDirections.Find(x => x.direction == Direction.East);
+            var value = robotInputService.instruction.cleaningDirections.Find(x => x.direction == Direction.East);
             if (value != null)
                 actualValue = value.stepCount;
 
@@ -239,23 +261,25 @@ namespace ZainsCintRobotCleaner.Test
         }
 
         [Test]
-        public void WhenReadInputCleaningDirectionsStepsLessThan1ThenSetStepsTo0()
+        public void WhenRobotInputCleaningDirectionsStepsLessThan1ThenSetStepsTo1()
         {
             //arrange
-            var readInputService = new RobotInputService();
+            var robotInputService = new RobotInputService();
             int actualValue = 0;
             int expectedValue = Helper.minSteps + 1;
 
             //act
-            readInputService.ParseInput("1");
-            readInputService.ParseInput("10 22");
-            readInputService.ParseInput("E 0");
-            var value = readInputService.instruction.cleaningDirections.Find(x => x.direction == Direction.East);
+            robotInputService.ParseInput("1");
+            robotInputService.ParseInput("10 10");
+            robotInputService.ParseInput("E -10");
+            var value = robotInputService.instruction.cleaningDirections.Find(x => x.direction == Direction.East);
             if (value != null)
                 actualValue = value.stepCount;
 
             //assert
             Assert.That(actualValue, Is.EqualTo(expectedValue));
         }
+
+        #endregion
     }
 }

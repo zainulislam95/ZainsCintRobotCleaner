@@ -13,6 +13,7 @@ namespace Cleaner.Service.Implementations
     public class RobotInputService : IRobotInputService
     {
         #region Variables 
+
         public List<string> robotInstructions { get; set; } 
         public Instruction instruction { get; set; }
         public bool isInputComplete
@@ -21,10 +22,10 @@ namespace Cleaner.Service.Implementations
                 if (robotInstructions.Count == (instruction.numberOfCommands + 2))
                     return true;
                 else
-                    return false;
-                    //return (robotInstructions.Count == (instruction.numberOfCommands + 2)); 
+                    return false; 
             } 
         } 
+
         #endregion
 
         #region Constructor
@@ -36,10 +37,12 @@ namespace Cleaner.Service.Implementations
         #endregion 
 
         #region Functions
+
         public string ReadInput()
         {
             return Console.ReadLine()!;
         }
+
         public void ParseInput(string instruction)
         {
             if (!isInputComplete)
@@ -66,6 +69,7 @@ namespace Cleaner.Service.Implementations
 
             instruction.numberOfCommands = (numberOfCommands < Helper.minCommands) ? Helper.minCommands : (numberOfCommands > Helper.maxCommands) ? Helper.maxCommands : numberOfCommands;
         }
+
         private void SetStartPosition(string inputInstruction)
         {
             string[] coordinates = inputInstruction.Split(null);
@@ -80,6 +84,7 @@ namespace Cleaner.Service.Implementations
                 instruction.startPosition = new Position(x, y);
             }
         }
+
         private void SetCleaningDirections(string inputInstruction)
         {
             Movement movement = new Movement();

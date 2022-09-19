@@ -28,7 +28,7 @@ namespace Cleaner.Domain.Models
 
         #region Functions
 
-        public Position GetDirectionLocation(Direction direction)
+        public Position GetDirectionPosition(Direction direction)
         {
             switch (direction)
             {

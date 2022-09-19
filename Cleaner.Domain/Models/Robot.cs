@@ -1,9 +1,4 @@
 ﻿using Cleaner.Domain.Enum;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cleaner.Domain.Models
 {
@@ -45,7 +40,7 @@ namespace Cleaner.Domain.Models
         {
             while (step >= 1)
             {
-                currentLocation = currentLocation.GetDirectionLocation(direction);
+                currentLocation = currentLocation.GetDirectionPosition(direction);
 
                 step--;
             }

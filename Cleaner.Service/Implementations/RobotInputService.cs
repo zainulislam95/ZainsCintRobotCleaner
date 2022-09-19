@@ -64,7 +64,7 @@ namespace Cleaner.Service.Implementations
         {
             int numberOfCommands = int.Parse(robotInstruction);
 
-            instruction.numberOfCommands = (numberOfCommands < Helper.MinNumberOfCommands) ? Helper.MinNumberOfCommands : (numberOfCommands > Helper.MaxNumberOfCommands) ? Helper.MaxNumberOfCommands : numberOfCommands;
+            instruction.numberOfCommands = (numberOfCommands < Helper.minCommands) ? Helper.minCommands : (numberOfCommands > Helper.maxCommands) ? Helper.maxCommands : numberOfCommands;
         }
         private void SetStartPosition(string inputInstruction)
         {
@@ -72,10 +72,10 @@ namespace Cleaner.Service.Implementations
             if (coordinates.Length > 1)
             {
                 int x = int.Parse(coordinates[0]);
-                x = (x >= Helper.MaxForPositionX) ? Helper.MaxForPositionX : (x <= Helper.MinForPositionX) ? Helper.MinForPositionX : x;
+                x = (x >= Helper.maxPositionX) ? Helper.maxPositionX : (x <= Helper.minPositionX) ? Helper.minPositionX : x;
 
                 int y = int.Parse(coordinates[1]);
-                y = (y >= Helper.MaxForPositionY) ? Helper.MaxForPositionY : (y <= Helper.MinForPositionY) ? Helper.MinForPositionY : y;
+                y = (y >= Helper.maxPositionY) ? Helper.maxPositionY : (y <= Helper.minPositionY) ? Helper.minPositionY : y;
 
                 instruction.startPosition = new Position(x, y);
             }
@@ -108,7 +108,7 @@ namespace Cleaner.Service.Implementations
                 }
 
                 movement.stepCount = int.Parse(cleaningDirection[1]);
-                movement.stepCount = (movement.stepCount >= Helper.MaxNumberOfSteps) ? (Helper.MaxNumberOfSteps - 1) : (movement.stepCount <= Helper.MinNumberOfSteps) ? (Helper.MinNumberOfSteps + 1) : movement.stepCount;
+                movement.stepCount = (movement.stepCount >= Helper.maxSteps) ? (Helper.maxSteps - 1) : (movement.stepCount <= Helper.minSteps) ? (Helper.minSteps + 1) : movement.stepCount;
             }
             instruction.cleaningDirections.Add(movement);
         }

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZainsCintRobotCleaner", "ZainsCintRobotCleaner\ZainsCintRobotCleaner.csproj", "{006F8C6F-6B6F-44A3-B2BC-729BFE16F885}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZainsCintRobotCleaner", "ZainsCintRobotCleaner\ZainsCintRobotCleaner.csproj", "{006F8C6F-6B6F-44A3-B2BC-729BFE16F885}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleaner.Domain", "Cleaner.Domain\Cleaner.Domain.csproj", "{4C896DC5-1449-47C3-8364-5FD2EBEC6807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cleaner.Domain", "Cleaner.Domain\Cleaner.Domain.csproj", "{4C896DC5-1449-47C3-8364-5FD2EBEC6807}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cleaner.Service", "Cleaner.Service\Cleaner.Service.csproj", "{6C498FEC-1FC5-4BCA-9E5B-F367D1D003AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cleaner.Service", "Cleaner.Service\Cleaner.Service.csproj", "{6C498FEC-1FC5-4BCA-9E5B-F367D1D003AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZainsCintRobotCleaner.Test", "ZainsCintRobotCleaner.Test\ZainsCintRobotCleaner.Test.csproj", "{66262932-ABB3-4B4F-AA54-AD13F96ADE8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{6C498FEC-1FC5-4BCA-9E5B-F367D1D003AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C498FEC-1FC5-4BCA-9E5B-F367D1D003AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C498FEC-1FC5-4BCA-9E5B-F367D1D003AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66262932-ABB3-4B4F-AA54-AD13F96ADE8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66262932-ABB3-4B4F-AA54-AD13F96ADE8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66262932-ABB3-4B4F-AA54-AD13F96ADE8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66262932-ABB3-4B4F-AA54-AD13F96ADE8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
